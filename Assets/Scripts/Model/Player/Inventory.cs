@@ -10,6 +10,8 @@ namespace BGS
         [SerializeField] IBaseItem Pants;
         [SerializeField] IBaseItem Shoes;
 
+        public int gold = 10;
+
         Dictionary<IBaseItem, int> itemsInInventory = new Dictionary<IBaseItem, int>();
         public Dictionary<IBaseItem, int> ItemsInInventory { get => itemsInInventory; }
 

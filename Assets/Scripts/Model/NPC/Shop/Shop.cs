@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace BGS
 
         public Dictionary<IBaseItem, int> ItemsInShop { get => itemsInShop; }
 
+        public event Action<Inventory> itemPurchased;
+
         private void Start()
         {
             for (int i = 0; i < startingItemsList.Count; i++)
@@ -23,11 +26,24 @@ namespace BGS
                 );
             }
         }
+
+        public void PurchaseItem(IBaseItem item, Inventory playerInventory)
+        {
+            if(playerInventory.gold >= item.Price && itemsInShop[item] > 0)
+            {
+                itemsInShop[item]--;
+                playerInventory.gold -= item.Price;
+                playerInventory.AddItemToInventory(item);
+
+                if(itemPurchased != null) itemPurchased(playerInventory);
+            }
+        }
     }
 
+    [Serializable]
     public class ShopItemList
     {
-        public IBaseItem item;
-        public int quantity;
+        [SerializeField] public BaseItem item;
+        [SerializeField] public int quantity;
     }
 }
