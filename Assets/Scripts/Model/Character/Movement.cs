@@ -6,7 +6,7 @@ namespace BGS
     public class Movement : MonoBehaviour
     {
         [SerializeField] float speed = 4f;
-        [SerializeField] Rigidbody2D rigidb;
+        Rigidbody2D rigidb;
         Vector2 movement;
 
         private void Start()

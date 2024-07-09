@@ -32,7 +32,12 @@ namespace BGS
         {
             if(shopNearby != null)
             {
-                shopNearby.OpenShop(inventory);
+                shopNearby.ToggleShop(inventory);
+                inventory.HideInventoy();
+            }
+            if (shopNearby == null)
+            {
+                inventory.ToggleInventory();
             }
         }
 

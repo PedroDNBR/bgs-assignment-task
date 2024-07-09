@@ -60,6 +60,18 @@ namespace BGS
             }
         }
 
+        public void ToggleShop(Inventory playerInventory)
+        {
+            if(UIShop.gameObject.activeSelf)
+            {
+                HideShop();
+            }
+            else
+            {
+                OpenShop(playerInventory);
+            }
+        }
+
         public void OpenShop(Inventory playerInventory)
         {
             ClearShop();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ namespace BGS
         Dictionary<IBaseItem, int> itemsInInventory = new Dictionary<IBaseItem, int>();
         public Dictionary<IBaseItem, int> ItemsInInventory { get => itemsInInventory; }
 
+        public event Action ToggleUIInventory;
+        public event Action HideUIInventory;
+
         public void AddItemToInventory(IBaseItem item)
         {
             if(ItemsInInventory.ContainsKey(item))
@@ -25,6 +29,16 @@ namespace BGS
             {
                 ItemsInInventory.Add(item, 1);
             }
+        }
+
+        public void ToggleInventory()
+        {
+            if (ToggleUIInventory != null) ToggleUIInventory();
+        }
+
+        public void HideInventoy()
+        {
+            if (HideUIInventory != null) HideUIInventory();
         }
     }
 }

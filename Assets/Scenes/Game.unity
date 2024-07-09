@@ -650,9 +650,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213772238}
+  - component: {fileID: 213772240}
   - component: {fileID: 213772237}
   - component: {fileID: 213772239}
-  - component: {fileID: 213772240}
   - component: {fileID: 213772243}
   - component: {fileID: 213772235}
   - component: {fileID: 213772236}
@@ -690,7 +690,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  rigidb: {fileID: 0}
 --- !u!50 &213772237
 Rigidbody2D:
   serializedVersion: 4
@@ -813,6 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e2d8554119e5244a382a047bc18e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIInventory: {fileID: 549321030}
   UIItemTemplate: {fileID: 760760803}
   UIItemGrid: {fileID: 1092263776}
   playerNameUIText: {fileID: 987491332}
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7a0a8e6a7dfcc45bba481b80673cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 2
+  gold: 10
 --- !u!58 &213772243
 CircleCollider2D:
   m_ObjectHideFlags: 0
