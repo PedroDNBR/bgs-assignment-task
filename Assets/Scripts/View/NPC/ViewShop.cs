@@ -10,6 +10,8 @@ namespace BGS
     {
         Shop shop;
 
+        public Shop Shop { get => shop; }
+
         [Header("UI elements")]
         public Transform UIShop;
         public GameObject UIItemTemplate;

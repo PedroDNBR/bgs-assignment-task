@@ -9,12 +9,14 @@ namespace BGS
 
         Movement movement;
         Inventory inventory;
+        ViewInventory viewInventory;
         ViewShop shopNearby;
 
         void Start()
         {
             movement = GetComponent<Movement>();
             inventory = GetComponent<Inventory>();
+            viewInventory = GetComponent<ViewInventory>();
         }
 
         private void Update()
@@ -32,8 +34,9 @@ namespace BGS
         {
             if(shopNearby != null)
             {
-                shopNearby.ToggleShop(inventory);
                 inventory.HideInventoy();
+                shopNearby.ToggleShop(inventory);
+                inventory.ToggleSellInventory(shopNearby.Shop);
             }
             if (shopNearby == null)
             {
@@ -49,7 +52,6 @@ namespace BGS
         private void OnTriggerEnter2D(Collider2D collision)
         {
             ViewShop shop = collision.GetComponent<ViewShop>();
-            Debug.Log(shop);
             if (shopNearby)
             {
                 ClearAndCloseNearbyShop();
@@ -57,22 +59,24 @@ namespace BGS
             if (shop != null)
             {
                 shopNearby = shop;
+                shopNearby.Shop.purchasedItemWentToInventory += viewInventory.OpenSellInventory;
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             ViewShop shop = collision.GetComponent<ViewShop>();
-            Debug.Log(shop);
-            if (shopNearby != null && shop != null && shopNearby == shop)
+            if (shopNearby != null && shopNearby.Shop != null && shop != null && shopNearby == shop && inventory != null)
             {
                 ClearAndCloseNearbyShop();
+                inventory.HideSellInventory();
             }
         }
 
         void ClearAndCloseNearbyShop()
         {
             shopNearby.HideShop();
+            shopNearby.Shop.purchasedItemWentToInventory -= viewInventory.OpenSellInventory;
             shopNearby = null;
         }
     }

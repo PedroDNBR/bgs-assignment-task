@@ -18,6 +18,9 @@ namespace BGS
 
         public event Action ToggleUIInventory;
         public event Action HideUIInventory;
+        public event Action HideUISellInventory;
+        
+        public event Action<Shop> ToggleUISellInventory;
 
         public void AddItemToInventory(IBaseItem item)
         {
@@ -31,6 +34,23 @@ namespace BGS
             }
         }
 
+        public void SellItem(IBaseItem item, Shop shop)
+        {
+            if (ItemsInInventory.ContainsKey(item))
+            {
+                if (ItemsInInventory[item] <= 1)
+                {
+                    ItemsInInventory.Remove(item);
+                }
+                else
+                {
+                    ItemsInInventory[item]--;
+                }
+                gold += item.Price;
+                shop.AddBackToStock(item, this);
+            }
+        }
+
         public void ToggleInventory()
         {
             if (ToggleUIInventory != null) ToggleUIInventory();
@@ -40,5 +60,16 @@ namespace BGS
         {
             if (HideUIInventory != null) HideUIInventory();
         }
+
+        public void ToggleSellInventory(Shop shop)
+        {
+            if (ToggleUISellInventory != null) ToggleUISellInventory(shop);
+        }
+
+        public void HideSellInventory()
+        {
+            if (HideUISellInventory != null) HideUISellInventory();
+        }
+
     }
 }

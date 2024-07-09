@@ -15,6 +15,7 @@ namespace BGS
         public Dictionary<IBaseItem, int> ItemsInShop { get => itemsInShop; }
 
         public event Action<Inventory> itemPurchased;
+        public event Action<Shop> purchasedItemWentToInventory;
 
         private void Start()
         {
@@ -36,6 +37,17 @@ namespace BGS
                 playerInventory.AddItemToInventory(item);
 
                 if(itemPurchased != null) itemPurchased(playerInventory);
+                if (purchasedItemWentToInventory != null) purchasedItemWentToInventory(this);
+            }
+        }
+
+        public void AddBackToStock(IBaseItem item, Inventory playerInventory)
+        {
+            if(ItemsInShop.ContainsKey(item))
+            {
+                ItemsInShop[item]++;
+                if (itemPurchased != null) itemPurchased(playerInventory);
+                if (purchasedItemWentToInventory != null) purchasedItemWentToInventory(this);
             }
         }
     }
