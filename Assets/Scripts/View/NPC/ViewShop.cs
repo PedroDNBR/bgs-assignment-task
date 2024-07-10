@@ -17,6 +17,10 @@ namespace BGS
         public GameObject UIItemTemplate;
         public VerticalLayoutGroup UIItemGrid;
 
+        [Header("UI outside Canvas")]
+        public SpriteRenderer interactionSprite;
+
+
         private void Start()
         {
             shop = GetComponent<Shop>();
@@ -80,6 +84,16 @@ namespace BGS
             ClearShop();
             FillShopWithItems(playerInventory);
             ShowShop();
+        }
+
+        public void ShowInteractionIcon()
+        {
+            interactionSprite.gameObject.SetActive(true);
+        }
+
+        public void HideInteractionIcon()
+        {
+            interactionSprite.gameObject.SetActive(false);
         }
 
         public void ShowShop()

@@ -48,12 +48,6 @@ namespace BGS
                     path = defaultAnimations.Find(x => x.index.Equals(index)).animationPath;
                 }
 
-                Debug.Log(index);
-                Debug.Log(path);
-
-                Debug.Log(defaultClipAnimations[index]);
-
-
                 defaultClipAnimations[index] = Resources.Load<AnimationClip>(path);
                 defaultClipAnimations[index] = Resources.Load<AnimationClip>(path);
             }

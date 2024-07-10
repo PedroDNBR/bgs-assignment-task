@@ -73,6 +73,7 @@ namespace BGS
             if (shop != null)
             {
                 shopNearby = shop;
+                shopNearby.ShowInteractionIcon();
                 shopNearby.Shop.purchasedItemWentToInventory += viewInventory.OpenSellInventory;
             }
         }
@@ -82,6 +83,7 @@ namespace BGS
             ViewShop shop = collision.GetComponent<ViewShop>();
             if (shopNearby != null && shopNearby.Shop != null && shop != null && shopNearby == shop && inventory != null)
             {
+                shopNearby.HideInteractionIcon();
                 ClearAndCloseNearbyShop();
                 inventory.HideSellInventory();
             }
