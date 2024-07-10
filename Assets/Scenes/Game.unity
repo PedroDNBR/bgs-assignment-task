@@ -1684,7 +1684,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ba7bc4c3f6f43488b6a4396001b4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BodyParts: []
+  defaultAnimations:
+  - index: head-front
+    animationPath: Animations/Skin/Head/head-front
+  - index: head-side
+    animationPath: Animations/Skin/Head/head-side
+  - index: torso-front
+    animationPath: Animations/Skin/Torso/torso-front
+  - index: torso-side
+    animationPath: Animations/Skin/Torso/torso-side
+  - index: arms-idle
+    animationPath: Animations/Skin/Arms/arms-idle
+  - index: arms-walk-horizontal
+    animationPath: Animations/Skin/Arms/arms-walk-horizontal
+  - index: arms-walk-vertical
+    animationPath: Animations/Skin/Arms/arms-walk-vertical
+  - index: legs-idle
+    animationPath: Animations/Skin/Legs/legs-idle
+  - index: legs-walk-horizontal
+    animationPath: Animations/Skin/Legs/legs-walk-horizontal
+  - index: legs-walk-vertical
+    animationPath: Animations/Skin/Legs/legs-walk-vertical
+  - index: shoes-idle
+    animationPath: Animations/Skin/Feet/shoes-idle
+  - index: shoes-walk-horizontal
+    animationPath: Animations/Skin/Feet/shoes-walk-horizontal
+  - index: shoes-walk-vertical
+    animationPath: Animations/Skin/Feet/shoes-walk-vertical
 --- !u!1 &432407777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,8 +1919,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 11
+  m_Sprite: {fileID: 114522925, guid: f01e336de14185442b832fe781ee0520, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1902,7 +1928,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &452018709
@@ -5773,6 +5799,10 @@ MonoBehaviour:
     quantity: 2
   - item: {fileID: 11400000, guid: 4ca3ffc3e1d156b4d85a4ad48831a004, type: 2}
     quantity: 3
+  - item: {fileID: 11400000, guid: 8ca26351271f20140a622e09b565915d, type: 2}
+    quantity: 2
+  - item: {fileID: 11400000, guid: 194d73c2f2144a342a85bf4a90734066, type: 2}
+    quantity: 2
 --- !u!1 &1468283741
 GameObject:
   m_ObjectHideFlags: 0
@@ -8862,7 +8892,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1466507459}
   - {fileID: 1525014941}
   - {fileID: 213772238}
+  - {fileID: 1466507459}
   - {fileID: 906259954}

@@ -7,11 +7,11 @@ namespace BGS
     public class AnimatorController : MonoBehaviour
     {
         Animator anim;
-        AnimationClip animationClip;
         AnimatorOverrideController animatorOverrideController;
         AnimationClipOverrides defaultClipAnimations;
 
-        public GameObject[] BodyParts;
+        // Keep the names in the scriptable objects aligned with the ones you choose here
+        [SerializeField] List<AnimationPathDictionary> defaultAnimations = new List<AnimationPathDictionary>();
 
         private void Start()
         {
@@ -21,6 +21,8 @@ namespace BGS
 
             defaultClipAnimations = new AnimationClipOverrides(animatorOverrideController.overridesCount);
             animatorOverrideController.GetOverrides(defaultClipAnimations);
+
+            animatorOverrideController.ApplyOverrides(defaultClipAnimations);
         }
 
         public void UpdateAnimationAxis(float horizontal, float vertical)
@@ -32,6 +34,33 @@ namespace BGS
 
             anim.SetFloat("Horizontal", horizontal);
             anim.SetFloat("Vertical", vertical);
+        }
+
+        public void OverrideAnimation(IBaseItem item, bool equipping)
+        {
+            Debug.Log(item);
+            Debug.Log(item.AnimationPaths.Count);
+            foreach (var animation in item.AnimationPaths) 
+            {
+                string index = animation.index;
+                string path = animation.animationPath;
+
+                if (!equipping)
+                {
+                    path = defaultAnimations.Find(x => x.index.Equals(index)).animationPath;
+                }
+
+                Debug.Log(index);
+                Debug.Log(path);
+
+                Debug.Log(defaultClipAnimations[index]);
+
+
+                defaultClipAnimations[index] = Resources.Load<AnimationClip>(path);
+                defaultClipAnimations[index] = Resources.Load<AnimationClip>(path);
+            }
+
+            animatorOverrideController.ApplyOverrides(defaultClipAnimations);
         }
     }
 

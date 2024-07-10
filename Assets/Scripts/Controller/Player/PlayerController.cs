@@ -19,12 +19,11 @@ namespace BGS
             inventory = GetComponent<Inventory>();
             viewInventory = GetComponent<ViewInventory>();
             animatorController = GetComponentInChildren<AnimatorController>();
+            inventory.EquipmentEquipped += animatorController.OverrideAnimation;
         }
 
         private void Update()
         {
-            Debug.Log(Input.GetAxis("Horizontal"));
-
             if (Input.GetAxis("Horizontal") > 0.8f)
                 horizontal = 1;
             else if (Input.GetAxis("Horizontal") < -0.9f)

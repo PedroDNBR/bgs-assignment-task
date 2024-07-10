@@ -27,6 +27,8 @@ namespace BGS
         public event Action HideUISellInventory;
         public event Action EquippedUIItem;
 
+        public event Action<IBaseItem, bool> EquipmentEquipped;
+
         public event Action<Shop> ToggleUISellInventory;
 
         public void AddItemToInventory(IBaseItem item)
@@ -103,6 +105,7 @@ namespace BGS
                         break;
                 }
                 UpdateEquipmentUI();
+                if (EquipmentEquipped != null) EquipmentEquipped(item, true);
             }
         }
 
@@ -125,6 +128,7 @@ namespace BGS
             }
             UpdateEquipmentUI();
             AddItemToInventory(item);
+            if (EquipmentEquipped != null) EquipmentEquipped(item, false);
         }
 
 

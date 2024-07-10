@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Blue T-Shirt
   price: 1
-  spritePath: 
-  animationPath: 
-  iconPath: Sprites/Items/Torso/Brazil-TShirt/brazil-t-shirt-icon
+  animationPaths:
+  - index: torso-front
+    animationPath: Animations/Items/Blue-TShirt/blue-tshirt-front
+  - index: torso-side
+    animationPath: Animations/Items/Blue-TShirt/blue-tshirt-side
+  iconPath: Sprites/Items/Torso/Blue-TShirt/blue-t-shirt-icon
   type: 1
