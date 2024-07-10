@@ -23,3 +23,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Black-Shoes/black-shoes-walk-horizontal
   iconPath: Sprites/Items/Shoes/Black-Shoes/black-shoes-icon
   type: 3
+  previewSpritePath: Sprites/Items/Shoes/Black-Shoes/black-shoes-spritesheet

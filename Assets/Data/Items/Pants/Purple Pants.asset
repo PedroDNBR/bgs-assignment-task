@@ -23,3 +23,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Purple-Pants/purple-pants-walk-horizontal
   iconPath: Sprites/Items/Pants/Purple-Pants/purple-pants-icon
   type: 2
+  previewSpritePath: Sprites/Items/Pants/Purple-Pants/purple-pants-spritesheet

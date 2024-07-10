@@ -22,15 +22,24 @@ namespace BGS
         public TextMeshProUGUI UIGoldSellText;
 
         [Header("UI Equipment")]
-        public Image HeadIcon;
-        public Button UnequipHeadEquipment;
-        public Image TorsoIcon;
-        public Button UnequipTorsoEquipment;
-        public Image PantsIcon;
-        public Button UnequipPantsEquipment;
-        public Image ShoesIcon;
-        public Button UnequipShoesEquipment;
+        public Image headIcon;
+        public Button unequipHeadEquipment;
+        public Image torsoIcon;
+        public Button unequipTorsoEquipment;
+        public Image pantsIcon;
+        public Button unequipPantsEquipment;
+        public Image shoesIcon;
+        public Button unequipShoesEquipment;
 
+        [Header("Preview")]
+        public Image previewHead;
+        public Image previewTorso;
+        public Image previewPants;
+        public Image previewShoes;
+        public string previewHeadPath;
+        public string previewTorsoPath;
+        public string previewPantsPath;
+        public string previewShoesPath;
 
         private void Start()
         {
@@ -84,33 +93,47 @@ namespace BGS
 
         void UpdateEquipmentUI()
         {
-            UpdateSingleEquipmetInUI(inventory.Head, HeadIcon, UnequipHeadEquipment);
-            UpdateSingleEquipmetInUI(inventory.Torso, TorsoIcon, UnequipTorsoEquipment);
-            UpdateSingleEquipmetInUI(inventory.Pants, PantsIcon, UnequipPantsEquipment);
-            UpdateSingleEquipmetInUI(inventory.Shoes, ShoesIcon, UnequipShoesEquipment);
+            UpdateSingleEquipmetInUI(inventory.Head, headIcon, unequipHeadEquipment);
+            UpdateSingleEquipmetInUI(inventory.Torso, torsoIcon, unequipTorsoEquipment);
+            UpdateSingleEquipmetInUI(inventory.Pants, pantsIcon, unequipPantsEquipment);
+            UpdateSingleEquipmetInUI(inventory.Shoes, shoesIcon, unequipShoesEquipment);
+
+            UpdateSingleCharacterPreview(inventory.Head, previewHead, previewHeadPath);
+            UpdateSingleCharacterPreview(inventory.Torso, previewTorso, previewTorsoPath);
+            UpdateSingleCharacterPreview(inventory.Pants, previewPants, previewPantsPath);
+            UpdateSingleCharacterPreview(inventory.Shoes, previewShoes, previewShoesPath);
+
             ClearInventory();
             FillInventoryWithItems();
         }
 
-        void UpdateSingleEquipmetInUI(BaseItem BodyPart, Image Icon, Button UnequipButton)
+        void UpdateSingleEquipmetInUI(BaseItem BodyPart, Image icon, Button unequipButton)
         {
-            UnequipButton.onClick.RemoveAllListeners();
+            unequipButton.onClick.RemoveAllListeners();
             if (BodyPart != null)
             {
-                Icon.sprite = Resources.Load<Sprite>(BodyPart.IconPath);
-                Icon.color = Color.white;
-                UnequipButton.gameObject.SetActive(true);
-                UnequipButton.onClick.AddListener(() => {
+                icon.sprite = Resources.Load<Sprite>(BodyPart.IconPath);
+                icon.color = Color.white;
+                unequipButton.gameObject.SetActive(true);
+                unequipButton.onClick.AddListener(() => {
                     inventory.UnequipItem(BodyPart);
                     UpdateEquipmentUI();
                 });
             }
             else
             {
-                Icon.sprite = null;
-                Icon.color = new Color(255, 255, 255, 0);
-                UnequipButton.gameObject.SetActive(false);
+                icon.sprite = null;
+                icon.color = new Color(255, 255, 255, 0);
+                unequipButton.gameObject.SetActive(false);
             }
+        }
+
+        void UpdateSingleCharacterPreview(BaseItem BodyPart, Image icon, string path)
+        {
+            if (BodyPart != null)
+                icon.sprite = Resources.Load<Sprite>(BodyPart.PreviewSpritePath);
+            else
+                icon.sprite = Resources.Load<Sprite>(path);
         }
 
         void UpdateGoldInInventory()

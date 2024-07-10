@@ -21,3 +21,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Brazil-TShirt/brazil-tshirt-side
   iconPath: Sprites/Items/Torso/Brazil-TShirt/brazil-t-shirt-icon
   type: 1
+  previewSpritePath: Sprites/Items/Torso/Brazil-TShirt/brazil-tshirt-spritesheet

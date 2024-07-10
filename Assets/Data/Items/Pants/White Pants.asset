@@ -23,3 +23,4 @@ MonoBehaviour:
     animationPath: Animations/Items/White-Pants/white-pants-walk-horizontal
   iconPath: Sprites/Items/Pants/White-Pants/white-pants-icon
   type: 2
+  previewSpritePath: Sprites/Items/Pants/White-Pants/white-pants-spritesheet

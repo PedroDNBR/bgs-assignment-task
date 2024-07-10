@@ -21,3 +21,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Hat/hat-side
   iconPath: Sprites/Items/Head/Hat/hat-icon
   type: 0
+  previewSpritePath: Sprites/Items/Head/Hat/hat-spritesheet

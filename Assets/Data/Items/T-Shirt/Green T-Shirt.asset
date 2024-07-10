@@ -21,3 +21,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Green-TShirt/green-tshirt-side
   iconPath: Sprites/Items/Torso/Green-TShirt/green-t-shirt-icon
   type: 1
+  previewSpritePath: Sprites/Items/Torso/Green-TShirt/green-tshirt-spritesheet

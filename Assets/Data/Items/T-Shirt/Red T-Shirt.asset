@@ -21,3 +21,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Red-TShirt/red-tshirt-side
   iconPath: Sprites/Items/Torso/Red-TShirt/red-t-shirt-icon
   type: 1
+  previewSpritePath: Sprites/Items/Torso/Red-TShirt/red-tshirt-spritesheet

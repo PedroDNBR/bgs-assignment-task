@@ -23,3 +23,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Green-Pants/green-pants-walk-horizontal
   iconPath: Sprites/Items/Pants/Green-Pants/green-pants-icon
   type: 2
+  previewSpritePath: Sprites/Items/Pants/Green-Pants/green-pants-spritesheet

@@ -15,12 +15,14 @@ namespace BGS
         public List<AnimationPathDictionary> animationPaths = new List<AnimationPathDictionary>();
         public string iconPath;
         public ItemType type;
+        public string previewSpritePath;
 
         public string ItemName { get => itemName; set => itemName = value; }
         public int Price { get => price; set => price = value; }
         public List<AnimationPathDictionary> AnimationPaths { get => animationPaths; set => animationPaths = value; }
         public string IconPath { get => iconPath; set => iconPath = value; }
         public ItemType Type { get => type; set => type = value; }
+        public string PreviewSpritePath { get => previewSpritePath; set => previewSpritePath = value; }
 
         public delegate void ItemAction();
 

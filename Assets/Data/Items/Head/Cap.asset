@@ -21,3 +21,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Cap/cap-side
   iconPath: Sprites/Items/Head/Cap/cap-icon
   type: 0
+  previewSpritePath: Sprites/Items/Head/Cap/cap-spritesheet

@@ -23,3 +23,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Brown-Shoes/brown-shoes-walk-horizontal
   iconPath: Sprites/Items/Shoes/Brown-Shoes/brown-shoes-icon
   type: 3
+  previewSpritePath: Sprites/Items/Shoes/Brown-Shoes/brown-shoes-spritesheet

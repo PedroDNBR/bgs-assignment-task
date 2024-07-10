@@ -11,6 +11,7 @@ namespace BGS
         public List<AnimationPathDictionary> AnimationPaths { get; set; }
         public string IconPath { get; set; }
         public ItemType Type { get; set; }
+        public string PreviewSpritePath { get; set; }
 
         public delegate void ItemAction();
 

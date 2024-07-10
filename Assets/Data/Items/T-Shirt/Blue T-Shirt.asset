@@ -21,3 +21,4 @@ MonoBehaviour:
     animationPath: Animations/Items/Blue-TShirt/blue-tshirt-side
   iconPath: Sprites/Items/Torso/Blue-TShirt/blue-t-shirt-icon
   type: 1
+  previewSpritePath: Sprites/Items/Torso/Blue-TShirt/blue-tshirt-spritesheet
