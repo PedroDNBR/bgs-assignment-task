@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,25 +51,16 @@ namespace BGS
             foreach (KeyValuePair<IBaseItem, int> item in inventory.ItemsInInventory)
             {
                 GameObject newUIItemTemplate = Instantiate(UIItemTemplate, UIItemGrid.transform);
-                // Prints the item name
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[0].
-                    text = $"{item.Key.ItemName}";
 
-                // Prints the item Quantity
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[1].
-                    text = $"x{item.Value}";
+                // Creates the UI template using the items value
+                item.Key.SetItemForEquipInUI(
+                    newUIItemTemplate,
+                    item.Value,
+                    "Equip",
+                    () => inventory.Equip(item.Key)
+                );
 
-
-                newUIItemTemplate.GetComponentsInChildren<Image>()[2].
-                    sprite = Resources.Load<Sprite>(item.Key.IconPath);
-
-                // Button event to sell the item
-                newUIItemTemplate.
-                    GetComponentInChildren<Button>().
-                    onClick.AddListener(() => inventory.Equip(item.Key));
-
+                // Activate template
                 newUIItemTemplate.SetActive(true);
             }
         }
@@ -78,29 +70,16 @@ namespace BGS
             foreach (KeyValuePair<IBaseItem, int> item in inventory.ItemsInInventory)
             {
                 GameObject newUIItemTemplate = Instantiate(UISellItemTemplate, UISellItemGrid.transform);
-                // Prints the item name
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[0].
-                    text = $"{item.Key.ItemName}";
 
-                // Prints the item Quantity
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[1].
-                    text = $"x{item.Value}";
+                // Creates the UI template using the items value
+                item.Key.SetItemForShopInUI(
+                    newUIItemTemplate,
+                    item.Value,
+                    "Sell",
+                    () => inventory.SellItem(item.Key, shop)
+                );
 
-                // Prints the item price
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[2].
-                    text = $"{item.Key.Price} Gold";
-
-                // Button event to sell the item
-                newUIItemTemplate.
-                    GetComponentInChildren<Button>().
-                    onClick.AddListener(() => inventory.SellItem(item.Key, shop));
-
-                newUIItemTemplate.GetComponentsInChildren<Image>()[2].
-                    sprite = Resources.Load<Sprite>(item.Key.IconPath);
-
+                // Activate template
                 newUIItemTemplate.SetActive(true);
             }
         }

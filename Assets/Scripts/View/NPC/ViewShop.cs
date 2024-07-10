@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,26 +34,16 @@ namespace BGS
             foreach(KeyValuePair<IBaseItem, int> item in shop.ItemsInShop)
             {
                 GameObject newUIItemTemplate = Instantiate(UIItemTemplate, UIItemGrid.transform);
-                // Prints the item name
-                item.Key.SetItemNameInUI(newUIItemTemplate);
 
-                // Prints the item Quantity
-                item.Key.SetItemQuantityInUI(newUIItemTemplate, item.Value);
-                
-                // Prints the item price
-                item.Key.SetItemPriceInUI(newUIItemTemplate);
-
-                // Button event to purchase the item
-                item.Key.SetItemButtonAction(
+                // Creates the UI template using the items value
+                item.Key.SetItemForShopInUI(
                     newUIItemTemplate,
+                    item.Value,
                     "Buy",
                     () => shop.PurchaseItem(item.Key, playerInventory)
                 );
 
-                // SetIcon
-                item.Key.SetItemIconInUI(newUIItemTemplate);
-
-                // 
+                // Activate template
                 newUIItemTemplate.SetActive(true);
             }
         }

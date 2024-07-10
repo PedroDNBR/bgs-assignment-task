@@ -12,6 +12,22 @@ namespace BGS
         public string IconPath { get; set; }
         public ItemType Type { get; set; }
 
+        public delegate void ItemAction();
+
+        public void SetItemForShopInUI(
+            GameObject UIElement, 
+            int quantity, 
+            string buttonText, 
+            Action action
+        );
+
+        public void SetItemForEquipInUI(
+            GameObject UIElement,
+            int quantity,
+            string buttonText,
+            Action action
+        );
+
         public void SetItemNameInUI(GameObject UIElement);
 
         public void SetItemQuantityInUI(GameObject UIElement, int quantity);

@@ -5,6 +5,7 @@ using TMPro;
 using static UnityEditor.Progress;
 using System.Xml.Linq;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 namespace BGS
 {
@@ -25,6 +26,49 @@ namespace BGS
         public ItemType Type { get => type; set => type = value; }
 
         public delegate void ItemAction();
+
+        public void SetItemForShopInUI(
+            GameObject UIElement,
+            int quantity,
+            string buttonText,
+            Action action
+        )
+        {
+            // Prints the item name
+            SetItemNameInUI(UIElement);
+
+            // Prints the item Quantity
+            SetItemQuantityInUI(UIElement, quantity);
+
+            // Prints the item price
+            SetItemPriceInUI(UIElement);
+
+            // Button event to purchase the item
+            SetItemButtonAction(UIElement, buttonText, action);
+
+            // SetIcon
+            SetItemIconInUI(UIElement);
+        }
+
+        public void SetItemForEquipInUI(
+            GameObject UIElement,
+            int quantity,
+            string buttonText,
+            Action action
+        )
+        {
+            // Prints the item name
+            SetItemNameInUI(UIElement);
+
+            // Prints the item Quantity
+            SetItemQuantityInUI(UIElement, quantity);
+
+            // Button event to purchase the item
+            SetItemButtonAction(UIElement, buttonText, action);
+
+            // SetIcon
+            SetItemIconInUI(UIElement);
+        }
 
         public void SetItemNameInUI(GameObject UIElement)
         {
