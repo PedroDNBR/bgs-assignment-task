@@ -42,7 +42,7 @@ namespace BGS
             }
         }
 
-        public void SellItem(IBaseItem item, Shop shop)
+        public void SellItem(IBaseItem item, Shop shop, AudioSource sellAudio)
         {
             if (ItemsInInventory.ContainsKey(item))
             {
@@ -56,6 +56,7 @@ namespace BGS
                 }
                 gold += item.Price;
                 shop.AddBackToStock(item, this);
+                sellAudio.Play();
             }
         }
 

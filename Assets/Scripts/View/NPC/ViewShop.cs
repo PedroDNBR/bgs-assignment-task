@@ -18,11 +18,15 @@ namespace BGS
         [Header("UI outside Canvas")]
         public SpriteRenderer interactionSprite;
 
+        public AudioSource greetingsAudio;
+        public AudioSource purchaseAudio;
 
         private void Start()
         {
             shop = GetComponent<Shop>();
             shop.itemPurchased += OpenShop;
+            greetingsAudio = GetComponent<AudioSource>();
+
         }
 
         public void FillShopWithItems(Inventory playerInventory)
@@ -36,7 +40,7 @@ namespace BGS
                     newUIItemTemplate,
                     item.Value,
                     "Buy",
-                    () => shop.PurchaseItem(item.Key, playerInventory)
+                    () => shop.PurchaseItem(item.Key, playerInventory, purchaseAudio)
                 );
 
                 // Activate template
@@ -60,6 +64,7 @@ namespace BGS
             }
             else
             {
+                PlayNPCSound();
                 OpenShop(playerInventory);
             }
         }
@@ -69,6 +74,11 @@ namespace BGS
             ClearShop();
             FillShopWithItems(playerInventory);
             ShowShop();
+        }
+
+        public void PlayNPCSound()
+        {
+            greetingsAudio.Play();
         }
 
         public void ShowInteractionIcon()

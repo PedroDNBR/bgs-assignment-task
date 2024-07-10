@@ -27,15 +27,16 @@ namespace BGS
             }
         }
 
-        public void PurchaseItem(IBaseItem item, Inventory playerInventory)
+        public void PurchaseItem(IBaseItem item, Inventory playerInventory, AudioSource purchaseAudio)
         {
             if(playerInventory.gold >= item.Price && itemsInShop[item] > 0)
             {
                 itemsInShop[item]--;
                 playerInventory.gold -= item.Price;
                 playerInventory.AddItemToInventory(item);
+                purchaseAudio.Play();
 
-                if(itemPurchased != null) itemPurchased(playerInventory);
+                if (itemPurchased != null) itemPurchased(playerInventory);
                 if (purchasedItemWentToInventory != null) purchasedItemWentToInventory(this);
             }
         }

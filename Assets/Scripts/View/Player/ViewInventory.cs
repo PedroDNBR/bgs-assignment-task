@@ -41,6 +41,9 @@ namespace BGS
         public string previewPantsPath;
         public string previewShoesPath;
 
+        public AudioSource sellAudio;
+
+
         private void Start()
         {
             inventory = GetComponent<Inventory>();
@@ -49,6 +52,8 @@ namespace BGS
             inventory.ToggleUISellInventory += ToggleSellInventory;
             inventory.HideUISellInventory += HideSellInventory;
             inventory.EquippedUIItem += UpdateEquipmentUI;
+
+            sellAudio = GetComponent<AudioSource>();
 
             UpdateEquipmentUI();
         }
@@ -83,7 +88,7 @@ namespace BGS
                     newUIItemTemplate,
                     item.Value,
                     "Sell",
-                    () => inventory.SellItem(item.Key, shop)
+                    () => inventory.SellItem(item.Key, shop, sellAudio)
                 );
 
                 // Activate template
