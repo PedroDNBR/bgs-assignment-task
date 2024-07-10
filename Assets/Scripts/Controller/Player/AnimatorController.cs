@@ -38,8 +38,6 @@ namespace BGS
 
         public void OverrideAnimation(IBaseItem item, bool equipping)
         {
-            Debug.Log(item);
-            Debug.Log(item.AnimationPaths.Count);
             foreach (var animation in item.AnimationPaths) 
             {
                 string index = animation.index;

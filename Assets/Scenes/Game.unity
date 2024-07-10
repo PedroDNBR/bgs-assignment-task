@@ -682,7 +682,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: -842033125, guid: c914bbd7ee92d8043b0c6516d4645573, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 3
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -4714,7 +4714,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 3
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -5793,15 +5793,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingItemsList:
-  - item: {fileID: 11400000, guid: 72f5d31660edd2d48860c268636ad434, type: 2}
-    quantity: 1
-  - item: {fileID: 11400000, guid: a93a71de6cf5c374ebe1fb8188ce8c81, type: 2}
+  - item: {fileID: 11400000, guid: 21f98d7ec60c4bc42bf4d2b8f49f4299, type: 2}
+    quantity: 2
+  - item: {fileID: 11400000, guid: 3fb4fd03cb1031d449770c16e3689769, type: 2}
     quantity: 2
   - item: {fileID: 11400000, guid: 4ca3ffc3e1d156b4d85a4ad48831a004, type: 2}
     quantity: 3
+  - item: {fileID: 11400000, guid: a93a71de6cf5c374ebe1fb8188ce8c81, type: 2}
+    quantity: 2
+  - item: {fileID: 11400000, guid: 72f5d31660edd2d48860c268636ad434, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: 9b773d15040a3ac4eb3324f4edf40b59, type: 2}
+    quantity: 2
   - item: {fileID: 11400000, guid: 8ca26351271f20140a622e09b565915d, type: 2}
     quantity: 2
+  - item: {fileID: 11400000, guid: 65c79b2c7787b58468a317593dffc279, type: 2}
+    quantity: 2
+  - item: {fileID: 11400000, guid: a051e037f3f4f004897609fd952f5204, type: 2}
+    quantity: 2
+  - item: {fileID: 11400000, guid: 804e762644a94ba42b2e10006e6b6e3e, type: 2}
+    quantity: 2
   - item: {fileID: 11400000, guid: 194d73c2f2144a342a85bf4a90734066, type: 2}
+    quantity: 2
+  - item: {fileID: 11400000, guid: bb1ca7bd25df03d49a0bbb722c84be7b, type: 2}
     quantity: 2
 --- !u!1 &1468283741
 GameObject:
@@ -6203,7 +6217,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 3
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -7394,7 +7408,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 10
   m_Sprite: {fileID: -570658710, guid: 6bf0909cc7b8cd64a8468a6a797d92d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
