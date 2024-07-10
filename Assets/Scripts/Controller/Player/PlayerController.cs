@@ -13,6 +13,8 @@ namespace BGS
         ViewShop shopNearby;
         AnimatorController animatorController;
 
+        public Transform menuUI;
+
         void Start()
         {
             movement = GetComponent<Movement>();
@@ -38,14 +40,15 @@ namespace BGS
 
             animatorController.UpdateAnimationAxis(horizontal, vertical);
 
-            if (Input.GetButtonDown("Interact"))
-            {
-                Interact();
-            }
+            if (Input.GetButtonDown("Interact")) Interact();
+
+            if (Input.GetButtonDown("Escape")) OpenMenu();
+
         }
 
         void Interact()
         {
+            if (menuUI.gameObject.activeSelf) return;
             if(shopNearby != null)
             {
                 inventory.HideInventoy();
@@ -56,6 +59,17 @@ namespace BGS
             {
                 inventory.ToggleInventory();
             }
+        }
+
+        void OpenMenu()
+        {
+            if (shopNearby != null)
+            {
+                inventory.HideInventoy();
+                shopNearby.HideShop();
+                inventory.HideSellInventory();
+            }
+            inventory.HideInventoy();
         }
 
         void FixedUpdate()

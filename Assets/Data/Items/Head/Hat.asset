@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   itemName: Hat
-  price: 2
+  price: 3
   animationPaths:
   - index: head-front
     animationPath: Animations/Items/Hat/hat-front

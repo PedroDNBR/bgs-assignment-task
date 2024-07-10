@@ -43,7 +43,6 @@ namespace BGS
 
         public AudioSource sellAudio;
 
-
         private void Start()
         {
             inventory = GetComponent<Inventory>();

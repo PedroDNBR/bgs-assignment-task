@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Green T-Shirt
   m_EditorClassIdentifier: 
   itemName: Green T-Shirt
-  price: 3
+  price: 2
   animationPaths:
   - index: torso-front
     animationPath: Animations/Items/Green-TShirt/green-tshirt-front

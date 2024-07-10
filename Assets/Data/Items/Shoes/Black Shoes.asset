@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Black Shoes
   m_EditorClassIdentifier: 
   itemName: Black Shoes
-  price: 1
+  price: 2
   animationPaths:
   - index: shoes-idle
     animationPath: Animations/Items/Black-Shoes/black-shoes-idle

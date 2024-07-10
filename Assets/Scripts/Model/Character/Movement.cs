@@ -9,10 +9,7 @@ namespace BGS
         Rigidbody2D rigidb;
         Vector2 movement;
 
-        private void Start()
-        {
-            rigidb = GetComponent<Rigidbody2D>();
-        }
+        private void Start() => rigidb = GetComponent<Rigidbody2D>();
 
         public void MoveCharacter(float horizontal, float vertical, float deltaTime)
         {

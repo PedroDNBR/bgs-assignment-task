@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Brazil T-Shirt
   m_EditorClassIdentifier: 
   itemName: Brazil T-Shirt
-  price: 2
+  price: 4
   animationPaths:
   - index: torso-front
     animationPath: Animations/Items/Brazil-TShirt/brazil-tshirt-front

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cap
   m_EditorClassIdentifier: 
   itemName: Cap
-  price: 2
+  price: 1
   animationPaths:
   - index: head-front
     animationPath: Animations/Items/Cap/cap-front
