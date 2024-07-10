@@ -16,5 +16,5 @@ MonoBehaviour:
   price: 2
   spritePath: 
   animationPath: 
-  iconPath: 
+  iconPath: Sprites/Items/Torso/Brazil-TShirt/brazil-t-shirt-icon
   type: 1

@@ -48,7 +48,8 @@ namespace BGS
                     GetComponentInChildren<Button>().
                     onClick.AddListener(() => shop.PurchaseItem(item.Key, playerInventory));
 
-                // TODO - Update Icon
+                newUIItemTemplate.GetComponentsInChildren<Image>()[2].
+                    sprite = Resources.Load<Sprite>(item.Key.IconPath);
 
                 newUIItemTemplate.SetActive(true);
             }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.WSA;
 
 namespace BGS
 {
@@ -9,17 +10,28 @@ namespace BGS
     {
         Inventory inventory;
 
-        [Header("UI elements")]
+        [Header("UI")]
         public Transform UIInventory;
         public GameObject UIItemTemplate;
         public VerticalLayoutGroup UIItemGrid;
         public TextMeshProUGUI UIGoldText;
 
-        [Header("UI Sell Menu elements")]
+        [Header("UI Sell")]
         public Transform UISellInventory;
         public GameObject UISellItemTemplate;
         public VerticalLayoutGroup UISellItemGrid;
         public TextMeshProUGUI UIGoldSellText;
+
+        [Header("UI Equipment")]
+        public Image HeadIcon;
+        public Button UnequipHeadEquipment;
+        public Image TorsoIcon;
+        public Button UnequipTorsoEquipment;
+        public Image PantsIcon;
+        public Button UnequipPantsEquipment;
+        public Image ShoesIcon;
+        public Button UnequipShoesEquipment;
+
 
         private void Start()
         {
@@ -28,6 +40,9 @@ namespace BGS
             inventory.HideUIInventory += HideInventory;
             inventory.ToggleUISellInventory += ToggleSellInventory;
             inventory.HideUISellInventory += HideSellInventory;
+            inventory.EquippedUIItem += UpdateEquipmentUI;
+
+            UpdateEquipmentUI();
         }
 
         public void FillInventoryWithItems()
@@ -46,7 +61,14 @@ namespace BGS
                     text = $"x{item.Value}";
 
 
-                // TODO - Update Icon
+                newUIItemTemplate.GetComponentsInChildren<Image>()[2].
+                    sprite = Resources.Load<Sprite>(item.Key.IconPath);
+
+                // Button event to sell the item
+                newUIItemTemplate.
+                    GetComponentInChildren<Button>().
+                    onClick.AddListener(() => inventory.Equip(item.Key));
+
                 newUIItemTemplate.SetActive(true);
             }
         }
@@ -71,14 +93,46 @@ namespace BGS
                     GetComponentsInChildren<TextMeshProUGUI>()[2].
                     text = $"{item.Key.Price} Gold";
 
-                // Button event to purchase the item
+                // Button event to sell the item
                 newUIItemTemplate.
                     GetComponentInChildren<Button>().
                     onClick.AddListener(() => inventory.SellItem(item.Key, shop));
 
-                // TODO - Update Icon
+                newUIItemTemplate.GetComponentsInChildren<Image>()[2].
+                    sprite = Resources.Load<Sprite>(item.Key.IconPath);
 
                 newUIItemTemplate.SetActive(true);
+            }
+        }
+
+        void UpdateEquipmentUI()
+        {
+            UpdateSingleEquipmetInUI(inventory.Head, HeadIcon, UnequipHeadEquipment);
+            UpdateSingleEquipmetInUI(inventory.Torso, TorsoIcon, UnequipTorsoEquipment);
+            UpdateSingleEquipmetInUI(inventory.Pants, PantsIcon, UnequipPantsEquipment);
+            UpdateSingleEquipmetInUI(inventory.Shoes, ShoesIcon, UnequipShoesEquipment);
+            ClearInventory();
+            FillInventoryWithItems();
+        }
+
+        void UpdateSingleEquipmetInUI(BaseItem BodyPart, Image Icon, Button UnequipButton)
+        {
+            UnequipButton.onClick.RemoveAllListeners();
+            if (BodyPart != null)
+            {
+                Icon.sprite = Resources.Load<Sprite>(BodyPart.IconPath);
+                Icon.color = Color.white;
+                UnequipButton.gameObject.SetActive(true);
+                UnequipButton.onClick.AddListener(() => {
+                    inventory.UnequipItem(BodyPart);
+                    UpdateEquipmentUI();
+                });
+            }
+            else
+            {
+                Icon.sprite = null;
+                Icon.color = new Color(255, 255, 255, 0);
+                UnequipButton.gameObject.SetActive(false);
             }
         }
 
