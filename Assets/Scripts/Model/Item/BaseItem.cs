@@ -2,10 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using TMPro;
-using static UnityEditor.Progress;
-using System.Xml.Linq;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 namespace BGS
 {
