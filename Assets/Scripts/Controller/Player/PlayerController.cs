@@ -52,7 +52,7 @@ namespace BGS
                 shopNearby.ToggleShop(inventory);
                 inventory.ToggleSellInventory(shopNearby.Shop);
             }
-            if (shopNearby == null)
+            else
             {
                 inventory.ToggleInventory();
             }
@@ -66,7 +66,7 @@ namespace BGS
         private void OnTriggerEnter2D(Collider2D collision)
         {
             ViewShop shop = collision.GetComponent<ViewShop>();
-            if (shopNearby)
+            if (shop != null && shopNearby)
             {
                 ClearAndCloseNearbyShop();
             }
@@ -81,9 +81,10 @@ namespace BGS
         private void OnTriggerExit2D(Collider2D collision)
         {
             ViewShop shop = collision.GetComponent<ViewShop>();
+            if (shop != null) shop.HideInteractionIcon();
+
             if (shopNearby != null && shopNearby.Shop != null && shop != null && shopNearby == shop && inventory != null)
             {
-                shopNearby.HideInteractionIcon();
                 ClearAndCloseNearbyShop();
                 inventory.HideSellInventory();
             }
