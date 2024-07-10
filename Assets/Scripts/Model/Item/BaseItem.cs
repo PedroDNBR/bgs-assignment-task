@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using TMPro;
+using static UnityEditor.Progress;
+using System.Xml.Linq;
+using UnityEngine.UI;
 
 namespace BGS
 {
@@ -19,6 +23,38 @@ namespace BGS
         public List<AnimationPathDictionary> AnimationPaths { get => animationPaths; set => animationPaths = value; }
         public string IconPath { get => iconPath; set => iconPath = value; }
         public ItemType Type { get => type; set => type = value; }
+
+        public delegate void ItemAction();
+
+        public void SetItemNameInUI(GameObject UIElement)
+        {
+            UIElement.GetComponentsInChildren<TextMeshProUGUI>()[0].text = $"{ItemName}";
+        }
+
+        public void SetItemQuantityInUI(GameObject UIElement, int quantity)
+        {
+            UIElement.GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"x{quantity}";
+        }
+
+        public void SetItemPriceInUI(GameObject UIElement)
+        {
+            UIElement.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"{Price} Gold";
+        }
+
+        public void SetItemButtonAction(GameObject UIElement, string buttonText, Action action)
+        {
+            Button button = UIElement.GetComponentInChildren<Button>();
+
+            button.GetComponentInChildren<TextMeshProUGUI>().text = buttonText;
+
+            button.onClick.AddListener(() => action?.Invoke());
+        }
+
+        public void SetItemIconInUI(GameObject UIElement)
+        {
+            UIElement.GetComponentsInChildren<Image>()[2].
+                sprite = Resources.Load<Sprite>(IconPath);
+        }
     }
 
     [Serializable]

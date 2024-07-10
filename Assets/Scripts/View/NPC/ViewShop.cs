@@ -33,28 +33,25 @@ namespace BGS
             {
                 GameObject newUIItemTemplate = Instantiate(UIItemTemplate, UIItemGrid.transform);
                 // Prints the item name
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[0].
-                    text = $"{item.Key.ItemName}";
+                item.Key.SetItemNameInUI(newUIItemTemplate);
 
                 // Prints the item Quantity
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[1].
-                    text = $"x{item.Value}";
-
+                item.Key.SetItemQuantityInUI(newUIItemTemplate, item.Value);
+                
                 // Prints the item price
-                newUIItemTemplate.
-                    GetComponentsInChildren<TextMeshProUGUI>()[2].
-                    text = $"{item.Key.Price} Gold";
+                item.Key.SetItemPriceInUI(newUIItemTemplate);
 
                 // Button event to purchase the item
-                newUIItemTemplate.
-                    GetComponentInChildren<Button>().
-                    onClick.AddListener(() => shop.PurchaseItem(item.Key, playerInventory));
+                item.Key.SetItemButtonAction(
+                    newUIItemTemplate,
+                    "Buy",
+                    () => shop.PurchaseItem(item.Key, playerInventory)
+                );
 
-                newUIItemTemplate.GetComponentsInChildren<Image>()[2].
-                    sprite = Resources.Load<Sprite>(item.Key.IconPath);
+                // SetIcon
+                item.Key.SetItemIconInUI(newUIItemTemplate);
 
+                // 
                 newUIItemTemplate.SetActive(true);
             }
         }
