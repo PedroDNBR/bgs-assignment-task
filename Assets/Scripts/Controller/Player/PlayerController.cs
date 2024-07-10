@@ -11,20 +11,35 @@ namespace BGS
         Inventory inventory;
         ViewInventory viewInventory;
         ViewShop shopNearby;
+        AnimatorController animatorController;
 
         void Start()
         {
             movement = GetComponent<Movement>();
             inventory = GetComponent<Inventory>();
             viewInventory = GetComponent<ViewInventory>();
+            animatorController = GetComponentInChildren<AnimatorController>();
         }
 
         private void Update()
         {
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
+            Debug.Log(Input.GetAxis("Horizontal"));
 
-            if(Input.GetButtonDown("Interact"))
+            if (Input.GetAxis("Horizontal") > 0.8f)
+                horizontal = 1;
+            else if (Input.GetAxis("Horizontal") < -0.9f)
+                horizontal = -1;
+            else horizontal = 0;
+
+            if (Input.GetAxis("Vertical") > 0.8f)
+                vertical = 1;
+            else if (Input.GetAxis("Vertical") < -0.9f)
+                vertical = -1;
+            else vertical = 0;
+
+            animatorController.UpdateAnimationAxis(horizontal, vertical);
+
+            if (Input.GetButtonDown("Interact"))
             {
                 Interact();
             }

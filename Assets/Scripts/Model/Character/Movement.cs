@@ -19,7 +19,7 @@ namespace BGS
             movement.x = horizontal;
             movement.y = vertical;
 
-            rigidb.MovePosition(rigidb.position + movement * speed * deltaTime);
+            rigidb.MovePosition(rigidb.position + movement.normalized * speed * deltaTime);
         }
     }
 }
