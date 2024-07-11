@@ -1,6 +1,6 @@
 # Blue Gravity Studios Assignment task
 
-[PDF Document](https://github.com/PedroDNBR/bgs-assignment-task/blob/master/explanation-document.pdf)
+[PDF Document](https://github.com/PedroDNBR/bgs-assignment-task/blob/master/PEDRO%20GOMES%20ANTUNES_BGS_TASK.rar)
 
 [Game Download](https://github.com/PedroDNBR/bgs-assignment-task/blob/master/PEDRO GOMES ANTUNES_BGS_TASK.rar)
 
